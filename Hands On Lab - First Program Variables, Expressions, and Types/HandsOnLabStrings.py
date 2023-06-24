@@ -89,4 +89,84 @@ import re # import tool
 
 # search function searches for specified patterns within a string
 s1 = "Michael Jackson is the best"
+# define the pattern to search for
+pattern = r"Jackson"
+# use the search() method to search for the pattern in the string
+result = re.search(pattern, s1)
+# check if a match was found
+print(result)
 
+# Using Special Sequences
+# \d
+pattern = r"\d\d\d\d\d\d\d\d\d\d" # Mathces any 10 consecutive digits
+text = "My phone number is 1234567890"
+match = re.search(pattern, text)
+match
+
+# \W
+pattern = r"\W" # Matches any non word character
+text = "Hello, World!"
+matches = re.findall(pattern, text)
+print("Matches:", matches)
+
+# findall() method finds all occurrences of a specified pattern within a string
+s2 = "Michael Jackson was a singer and known as the 'King of Pop'"
+# use the findall() method to find all occurrences of "as" in the string
+result = re.findall("as", s2)
+print(result)
+
+# RegEx split() function splits a string into an array of substrings based on a specified pattern
+# Use the split function to split the string by the "\s"
+split_array = re.split("\s", s2)
+
+# The split_array contains all the substrings, split by whitespace characters
+print(split_array)
+
+# RegEx sub() function used to replace all occurrences of a pattern in a string with a specified replacement
+# Define the regular expression pattern to search for
+pattern = r"King of Pop"
+
+# Define the replacement string
+replacement = "legend"
+
+# Use the sub function to replace the pattern with the replacement string
+new_string = re.sub(pattern, replacement, s2, flags=re.IGNORECASE)
+
+# The new_string contains the original string with the pattern replaced by the replacement string
+print(new_string)
+
+# QUIZ
+# use slicing to print out the first 3 elements
+d = "ABCDEFG"
+print(d[0:3])
+
+# use stride to print out every 2nd character
+e = 'clocrkr1e1c1t'
+print(e[::2])
+
+# print out a backslash
+print("\\")
+
+# consider the variable g and find the first index of the sub-string "snow"
+g = "Mary had a little lamb Little lamb, little lamb Mary had a little lamb \n Its fleece was white as snow And everywhere that Mary went Mary went, \n Mary went Everywhere that Mary went The lamb was sure to go"
+print(g)
+
+# to find first index, we can use find() method
+snow_index = g.find("snow")
+print(snow_index)
+
+# in the variable g, replace "Mary" with "Rob"
+replacement = "Rob"
+print(g.replace("Mary", "Rob"))
+
+# in the variable g, replace "," with "."
+replacement = "."
+print(g.replace(",", "."))
+
+# split g to a list
+print(g.split())
+
+# in string s3, find consecutive digits using \d
+s3 = "House number- 1105"
+consec_digits = r"\d\d\d\d"
+print(re.search(consec_digits, s3))
